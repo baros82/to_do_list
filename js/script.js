@@ -1,7 +1,7 @@
 {
     const welcome = () => {
         console.log("Hello world")
-    }
+    };
 
     welcome();
 
@@ -33,7 +33,25 @@
     const toggleTaskDone = (taskIndex) => {
         tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
-    }
+    };
+
+    const bindEvent = () => {
+        const removeButtons = document.querySelectorAll(".js-remove");
+
+        removeButtons.forEach((removeButton, taskIndex) => {
+            removeButton.addEventListener("click", () => {
+                removeTask(taskIndex);
+            });
+        });
+
+        const tobbleDoneButtons = document.querySelectorAll(".js-done");
+
+        tobbleDoneButtons.forEach((tobbleDoneButtons, taskIndex) => {
+            tobbleDoneButtons.addEventListener("click", () => {
+                toggleTaskDone(taskIndex);
+            });
+        });
+    };
 
     const render = () => {
         let htmlString = "";
@@ -50,21 +68,7 @@
 
         document.querySelector(".js-task").innerHTML = htmlString;
 
-        const removeButtons = document.querySelectorAll(".js-remove");
-
-        removeButtons.forEach((removeButton, taskIndex) => {
-            removeButton.addEventListener("click", () => {
-                removeTask(taskIndex);
-            });
-        });
-
-        const tobbleDoneButtons = document.querySelectorAll(".js-done");
-
-        tobbleDoneButtons.forEach((tobbleDoneButtons, taskIndex) => {
-            tobbleDoneButtons.addEventListener("click", () => {
-                toggleTaskDone(taskIndex);
-            });
-        });
+        bindEvent();
     };
 
 
