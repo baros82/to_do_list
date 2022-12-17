@@ -16,7 +16,7 @@
         },
     ];
 
-      const addNewTask = (newTaskContent) => {
+    const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
         });
@@ -29,12 +29,19 @@
         render();
     };
 
+
+    const toggleTaskDone = (taskIndex) => {
+        tasks[taskIndex].done = !tasks[taskIndex].done;
+        render();
+    }
+
     const render = () => {
         let htmlString = "";
 
         for (const task of tasks) {
             htmlString += `
         <li${task.done ? " style=\"text-decoration: line-through\"" : ""}>
+        <button class="js-done">Zrobione?</button>
         <button class="js-remove">usuń</button>
             ${task.content}
         </li>
@@ -50,9 +57,17 @@
                 removeTask(taskIndex);
             });
         });
+
+        const tobbleDoneButtons = document.querySelectorAll(".js-done");
+
+        tobbleDoneButtons.forEach((tobbleDoneButtons, taskIndex) => {
+            tobbleDoneButtons.addEventListener("click", () => {
+                toggleTaskDone(taskIndex);
+            });
+        });
     };
 
-  
+
 
     const onFormSubmit = (event) => {
         event.preventDefault();
