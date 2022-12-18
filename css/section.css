@@ -1,0 +1,28 @@
+.section__subheader {
+  background-color: white;
+  margin: auto;
+  margin-bottom: 2px;
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.section__form {
+  display: grid;
+  background-color: white;
+  padding: 20px;
+  grid-template-columns: 1fr auto;
+  grid-gap: 20px;
+}
+
+
+.section__formButton {
+  background-color: rgb(0, 128, 128);
+  color: white;
+  border: none;
+  padding: 10px;
+}
+
+.section__formField {
+  border: 1px solid #ccc;
+  padding: 10px
+}
