@@ -1,0 +1,61 @@
+.sectionList {
+    max-width: 1000px;
+    border-bottom: 20px solid white;
+    background-color: white;
+}
+
+.sectionList__subheader {
+    background-color: white;
+    margin: 20px auto 2px auto;
+    padding: 10px;
+    padding-left: 20px;
+    border-bottom: 2px solid rgb(243, 242, 242);
+}
+
+.sectionList__item {
+    list-style: none;
+    padding: 10px;
+    border-bottom: 2px solid rgb(243, 242, 242);
+    margin-right: 40px;
+    font-size: 25px;
+    display:grid;
+    grid-template-columns: 40px 2fr 40px;
+    align-items: center;
+}
+
+.sectionList__doneButton {
+    border: none;
+    background-color: rgb(2, 116, 2);
+    height: 35px;
+    width: 35px;
+    font-size: 20px;
+    color: white;
+}
+
+.sectionList__value { 
+ display: flex;
+ align-items: center;
+}
+
+.sectionList__removeButton {
+    height: 35px;
+    width: 35px;
+    background-color: rgb(255, 28, 28);
+    border: none;
+    font-size: 20px;
+    color: white;
+}
+
+@media (max-width: 767px) {
+    .sectionList {
+        margin: 10px;
+    }
+
+    .sectionList__item {
+        margin-right: 0px;
+    }
+
+    .sectionList__task {
+        padding: 0px 5px;
+    }
+}
