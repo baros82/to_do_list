@@ -51,10 +51,11 @@
         for (const task of tasks) {
             htmlString += `
         <li
-            class="list__item"${task.done ? "list__item--done" : ""}>
-        <button class="js-done">Zrobione?</button>
-        <button class="js-remove">usuń</button>
-            ${task.content}
+            class="sectionList__item"${task.done ? "list__item--done" : ""}>
+        <button class="js-done sectionList__doneButton">✔</button>
+        <span class="sectionList__value"> ${task.content} </span>
+        <button class="js-remove sectionList__removeButton sectionList__removeButton--flex">🗑</button>
+           
         </li>
         `;
         }
@@ -63,8 +64,6 @@
 
         bindEvent();
     };
-
-
 
     const onFormSubmit = (event) => {
         event.preventDefault();
