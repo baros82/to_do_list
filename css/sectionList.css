@@ -32,9 +32,13 @@
     color: white;
 }
 
+.sectionList__doneButton:active {
+    outline: 2px solid black;
+}
+
 .sectionList__value { 
  display: flex;
- align-items: center;
+ align-items: center; 
 }
 
 .sectionList__removeButton {
@@ -44,6 +48,14 @@
     border: none;
     font-size: 20px;
     color: white;
+}
+
+.sectionList__removeButton:active {
+    outline: 1px solid black;
+}
+
+.sectionList__item--done {
+    text-decoration: line-through;
 }
 
 @media (max-width: 767px) {
