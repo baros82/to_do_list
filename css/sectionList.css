@@ -7,17 +7,17 @@
 .sectionList__subheader {
     background-color: white;
     margin: 20px auto 2px auto;
-    padding: 10px;
+    padding: 20px;
     padding-left: 20px;
-    border-bottom: 2px solid rgb(243, 242, 242);
+    border-bottom: 1px solid rgb(243, 242, 242);
 }
 
 .sectionList__item {
     list-style: none;
     padding: 10px;
-    border-bottom: 2px solid rgb(243, 242, 242);
+    border-bottom: 1px solid rgb(243, 242, 242);
     margin-right: 40px;
-    font-size: 25px;
+    font-size: 16px;
     display:grid;
     grid-template-columns: 40px 2fr 40px;
     align-items: center;
@@ -26,10 +26,11 @@
 .sectionList__doneButton {
     border: none;
     background-color: rgb(2, 116, 2);
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     font-size: 20px;
     color: white;
+    cursor: pointer;
 }
 
 .sectionList__doneButton:active {
@@ -42,12 +43,13 @@
 }
 
 .sectionList__removeButton {
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     background-color: rgb(255, 28, 28);
     border: none;
     font-size: 20px;
     color: white;
+    cursor: pointer;
 }
 
 .sectionList__removeButton:active {
