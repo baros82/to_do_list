@@ -6,7 +6,7 @@
 [Link to website](https://baros82.github.io/to_do_list/)
 
 ## Previev
-![]()
+![](images/To-do_list.gif)
 ## Technologies
 
 - HTMl
