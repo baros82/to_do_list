@@ -16,10 +16,18 @@
 
 
 .section__formButton {
-  background-color: rgb(0, 128, 128);
+  background-color: hsl(180, 100%, 25%);
   color: white;
   border: none;
   padding: 10px;
+}
+
+.section__formButton:hover {
+  background-color: hsl(180, 100%, 30%);
+}
+
+.section__formButton:active {
+  background-color: hsl(180, 100%, 35%);
 }
 
 .section__formField {
