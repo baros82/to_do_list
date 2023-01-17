@@ -5,25 +5,34 @@
 
     welcome();
 
-    const tasks = [
-    ];
+    let tasks = [];
+
+    let hideDoneTasks = false;
 
     const addNewTask = (newTaskContent) => {
-        tasks.push({
-            content: newTaskContent,
-        });
-
+        tasks = [...tasks, { content: newTaskContent, }];
         render();
     };
 
     const removeTask = (taskIndex) => {
-        tasks.splice(taskIndex, 1);
+        tasks =[
+        ...tasks.slice(0, taskIndex),
+        ...tasks.slice(taskIndex +1),
+        ];
         render();
     };
 
 
     const toggleTaskDone = (taskIndex) => {
-        tasks[taskIndex].done = !tasks[taskIndex].done;
+      tasks = [
+        ...tasks.slice(0, taskIndex),
+        {
+            ...tasks[taskIndex],
+            done: !tasks[taskIndex].done,
+        },
+        ...tasks.slice(taskIndex +1),
+      ];
+
         render();
     };
 
@@ -46,11 +55,31 @@
         });
     };
 
-    const render = () => {
-        let htmlString = "";
+    const renderButtons = () => {
+       const buttonsElement = document.querySelector(".js--buttons");
+
+       if (!tasks.length) {
+        buttonsElement.innerHTML = "";
+        return;
+       }
+
+       buttonsElement.innerHTML = `
+        <button class="sectionList__hideButton">
+            ${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone
+        </button>
+        <button class="sectionList__finishButton">
+            Ukończ wszystkie
+        </button>
+        `;
+     };
+
+    const bindButtonsEvents = () => { };
+
+    const renderTasks = () => {
+        let htmlListString = "";
 
         for (const task of tasks) {
-            htmlString += `
+            htmlListString += `
                 <li class=sectionList__item>
                 <button class="js-done sectionList__doneButton">
                      ${task.done ? "✔" : ""}
@@ -58,15 +87,21 @@
                 <span ${task.done ? "class=sectionList__item--done" : "class=sectionList__value"}>
                      ${task.content} 
                 </span>
-                 <button class="js-remove sectionList__removeButton sectionList__removeButton--flex">
+                 <button class="js-remove sectionList__removeButton">
                      🗑
                  </button>
                 </li>
             `;
         };
 
-        document.querySelector(".js-task").innerHTML = htmlString;
+        document.querySelector(".js-task").innerHTML = htmlListString;
+    };
 
+
+    const render = () => {
+        renderButtons();
+        renderTasks();
+        bindButtonsEvents();
         bindEvent();
     };
 
@@ -75,6 +110,7 @@
 
         const newTaskContent = document.querySelector(".js-newTask").value.trim();
         const newTaskElement = document.querySelector(".js-newTask");
+        const buttons = document.querySelector(".js-button");
 
         if (newTaskContent !== "") {
             addNewTask(newTaskContent);
