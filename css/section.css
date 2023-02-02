@@ -14,24 +14,6 @@
   grid-gap: 20px;
 }
 
-
-.section__formButton {
-  background-color: hsl(180, 100%, 25%);
-  color: white;
-  border: none;
-  padding: 10px;
-  transition: 1s;
-}
-
-.section__formButton:hover {
-  background-color: hsl(180, 100%, 30%);
-  transform: scale(1.1)
-}
-
-.section__formButton:active {
-  background-color: hsl(180, 100%, 35%);
-}
-
 .section__formField {
   border: 1px solid #ccc;
   padding: 10px
@@ -50,11 +32,5 @@
   .section__formField {
     width: 100%;
     margin-bottom: -5px;
-  }
-
-  .section__formButton {
-    width: 100%;
-    margin-top: -5px;
-    cursor: pointer;
   }
 }

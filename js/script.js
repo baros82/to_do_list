@@ -72,13 +72,13 @@
     const renderTasks = () => {
        const taskToHTML = task => `
                 <li class="sectionList__item${task.done && hideDoneTasks ? " sectionList__item--hidden" : ""}">
-                <button class="js-done sectionList__doneButton">
+                <button class="js-done button__done">
                      ${task.done ? "✔" : ""}
                 </button>
                 <span ${task.done ? "class=sectionList__item--done" : "class=sectionList__value"}>
                      ${task.content} 
                 </span>
-                 <button class="js-remove sectionList__removeButton">
+                 <button class="js-remove button__remove">
                      🗑
                  </button>
                 </li>
@@ -98,10 +98,10 @@
        }
 
        buttonsElement.innerHTML = `
-        <button class="sectionList__hideButton js-toggleHideDoneTasks">
+        <button class="button__hide js-toggleHideDoneTasks">
             ${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone
         </button>
-        <button class="sectionList__finishButton js-finishAllDoneTasks" ${ tasks.every(({ done }) => done) ? " disabled " : ""}
+        <button class="button__finish js-finishAllDoneTasks" ${ tasks.every(({ done }) => done) ? " disabled " : ""}
         >
             Ukończ wszystkie
         </button>
